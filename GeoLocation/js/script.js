@@ -61,8 +61,8 @@ const input = document.querySelector(".search_input");
 let x = 0;
 button.addEventListener("click", function () {
   if (x === 1) {
-    countriesContainer.insertAdjacentHTML("beforeend", "");
-    neighbourContainer.insertAdjacentHTML("beforeend", "");
+    countriesContainer.innerHTML = "";
+    neighbourContainer.innerHTML = "";
   }
   getCountryData(input.value);
   x = 1;
