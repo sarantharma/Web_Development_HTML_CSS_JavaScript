@@ -58,7 +58,12 @@ const getNeighbour = function (neighbour) {
 
 const button = document.querySelector(".search_button");
 const input = document.querySelector(".search_input");
-
+let x = 0;
 button.addEventListener("click", function () {
+  if (x === 1) {
+    countriesContainer.insertAdjacentHTML("beforeend", "");
+    neighbourContainer.insertAdjacentHTML("beforeend", "");
+  }
   getCountryData(input.value);
+  x = 1;
 });
