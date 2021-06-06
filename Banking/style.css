@@ -1,0 +1,322 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  height: 100vh;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+}
+
+nav img {
+  width: 60px;
+  height: 60px;
+}
+
+.welcome {
+  font-size: 1.9rem;
+  font-weight: 500;
+  color: rgb(155, 1, 1);
+}
+
+.login {
+  display: flex;
+}
+
+.login-input {
+  border: none;
+  font-size: 1.6rem;
+  font-family: inherit;
+  padding: 0.5rem 2rem;
+  text-align: center;
+  width: 12rem;
+  border-radius: 10rem;
+  margin-right: 1rem;
+  color: rgb(155, 1, 1);
+  background-color: rgb(255, 197, 197);
+  transition: all 0.3s;
+}
+
+.login-input:focus {
+  outline: none;
+  border: 1px solid #ccc;
+}
+
+.login-input::placeholder {
+  color: rgb(255, 72, 72);
+}
+
+.login-button {
+  border: none;
+  background: none;
+  font-size: 3.2rem;
+  color: inherit;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.login-button:hover,
+.login-button:focus {
+  outline: none;
+  color: #777;
+}
+
+.app {
+  position: relative;
+  max-width: 100rem;
+  margin: 4rem auto;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr;
+  grid-template-rows: auto repeat(3, 15rem) auto;
+  gap: 2rem;
+
+  /* NOTE This creates the fade in/out anumation */
+  opacity: 0;
+  transition: all 1s;
+}
+
+.balance {
+  margin: 10px;
+
+  grid-column: 1 / span 3;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.balance-label {
+  font-size: 2.2rem;
+  font-weight: 500;
+  margin-bottom: -0.2rem;
+}
+
+.balance-date {
+  font-size: 1.7rem;
+  color: #888;
+}
+
+.balance-value {
+  font-size: 4.5rem;
+  font-weight: 400;
+}
+
+/* MOVEMENTS */
+.movements {
+  /* grid-row: 2 / span 3; */
+  grid-column-start: 1;
+  grid-column-end: -1;
+  grid-row-start: 3;
+  grid-row-end: 5;
+  background-color: #fff;
+  /* border-radius: 4rem; */
+  background-color: rgb(255, 225, 225);
+  overflow: hidden;
+  overflow-y: scroll;
+  margin: 10px;
+}
+
+.movements-row {
+  padding: 2.25rem 4rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.movements-type {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #fff;
+  padding: 0.1rem 1rem;
+  border-radius: 10rem;
+  margin-right: 2rem;
+}
+
+.movements-date {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: #666;
+}
+
+.movements-type-deposit {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+}
+
+.movements-type-withdrawal {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+}
+
+.movements-value {
+  font-size: 1.7rem;
+  margin-left: auto;
+}
+
+/* OPERATIONS */
+.operation {
+  grid-row-start: 2;
+  grid-row-end: 3;
+  border-radius: 1rem;
+  padding: 2rem 4rem;
+  color: #333;
+  margin: 10px;
+}
+
+.operation-transfer {
+  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.operation-deposit {
+  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  grid-column-start: 3;
+  grid-column-end: -1;
+}
+
+.operation-close {
+  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+  grid-row-start: 5;
+  grid-row-end: 6;
+  grid-column-start: 1;
+  grid-column-end: 4;
+}
+
+h2 {
+  margin-bottom: 1rem;
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.form {
+  display: grid;
+  grid-template-columns: 2.5fr 2.5fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 0.4rem 1rem;
+}
+
+.form-input {
+  width: 100%;
+  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  font-family: inherit;
+  font-size: 1.5rem;
+  text-align: center;
+  color: #333;
+  padding: 0.5rem 0.2rem;
+  border-radius: 0.7rem;
+  transition: all 0.3s;
+}
+
+.form-input:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+.form-label {
+  font-size: 1.4rem;
+  text-align: center;
+}
+
+.form-btn {
+  border: none;
+  border-radius: 0.7rem;
+  font-size: 1.8rem;
+  background-color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+/* Exceptions for interst */
+.form-deposit > .form-input {
+  /* grid-template-columns: 2.5fr 1fr 2.5fr; */
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+.form-label-deposit {
+  grid-row: 2;
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+/* SUMMARY */
+.summary {
+  grid-row-start: 7;
+  grid-row-end: 8;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  display: flex;
+  align-items: baseline;
+  padding: 0 0.3rem;
+  margin-top: 1rem;
+}
+
+.summary-label {
+  font-size: 1.2rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  margin-right: 0.8rem;
+}
+
+.summary-value {
+  font-size: 2.2rem;
+  margin-right: 2.5rem;
+}
+
+.summary-value-in,
+.summary-value-interest {
+  color: #66c873;
+}
+
+.summary-value-out {
+  color: #f5465d;
+}
+
+.btn-sort {
+  /* margin-left: auto; */
+  border: none;
+  background: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.logout-timer {
+  grid-row-start: 8;
+  grid-row-end: 9;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  padding: 0 0.3rem;
+  margin-top: 1.9rem;
+  text-align: center;
+  font-size: 1.25rem;
+}
+
+.timer {
+  font-weight: 600;
+}
+
+/* Bavk end details */
+
+.backend {
+  margin: 10px;
+  background-color: rgb(37, 37, 37);
+  color: white;
+}
+
+.individual-accout {
+  margin: 10px;
+}
