@@ -1,0 +1,94 @@
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+}
+
+nav {
+  background: rgba(118, 198, 189, 255);
+  height: 80px;
+  width: 100%;
+}
+
+.logo {
+  color: white;
+  font-size: 35px;
+  font-weight: bold;
+}
+
+nav ul {
+  width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: rgb(83, 83, 73);
+}
+
+nav ul li {
+  line-height: 70px;
+  /* margin: 0 auto; */
+  background-color: rgb(66, 80, 38);
+}
+
+nav ul li a {
+  color: white;
+  font-size: 17px;
+}
+
+a.active,
+a:hover {
+  font-weight: bold;
+  transition: 0.5s;
+}
+
+.checkbtn {
+  font-size: 30px;
+  color: white;
+  float: right;
+  line-height: 80px;
+  margin-right: 40px;
+  cursor: pointer;
+  display: none;
+}
+
+#check {
+  display: none;
+}
+
+@media (max-width: 952px) {
+  .checkbtn {
+    display: block;
+  }
+
+  ul {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: rgba(118, 198, 189, 255);
+    top: 80px;
+    left: -100%;
+    text-align: center;
+    transition: all 0.5s;
+  }
+
+  nav ul li {
+    display: block;
+    margin: 50px 0;
+    line-height: 30px;
+  }
+
+  nav ul li a {
+    font-size: 20px;
+  }
+
+  #check:checked ~ ul {
+    left: 0;
+  }
+}
