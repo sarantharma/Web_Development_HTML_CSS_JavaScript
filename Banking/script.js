@@ -66,7 +66,7 @@ const displayMovements = function (movements, sort = false) {
         <div class="movements-type movements-type-${type}">${
       i + 1
     } ${type}</div>
-        <div class="movements-value">${mov}</div>
+        <div class="movements-value">`$${mov}`</div>
       </div>
     `;
     containerMovements.insertAdjacentHTML("afterbegin", html);
